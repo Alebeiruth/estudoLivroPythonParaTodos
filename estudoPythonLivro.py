@@ -469,6 +469,233 @@ except Exception as ex:
 print("Pronto")
 
 
+##LIVRO > PYTHON PARA TODOS, SEVERANCE CHARLES
+## CAPITULO 06
+
+##STRING
+
+fruta = "banana"
+letra = fruta[0]
+print(letra)
+
+##LEN
+
+fruta = "banana"
+comprimento = len(fruta)
+ultimaLetra = fruta[comprimento - 1]
+
+print(len(fruta))
+print(ultimaLetra)
+
+##LAÇO EM STRINGs
+
+fruta = "banana"
+indice = 0
+
+while indice < len(fruta):
+    letras = fruta[indice]
+    print(letras)
+    indice += 1
+
+## EXERCICIOS CAPITULO 6
+##6.1
+
+fruta = "banana"
+index = len(fruta) - 1
+
+while index >= 0:
+    letrasContrarias = fruta[index]
+    print(letrasContrarias)
+    index -= 1
+
+## SEGMENTOS EM STRINGs
+
+s = "Monty Python"
+fruta = "banana"
+print(s[0:5]) ## 0 inclui o primeiro numero e 5 exclui o ultimo
+print(s[6:12])
+print(fruta[:3]) ## começa do inicio até 3
+print(fruta[3:]) ## começa do 3 até o ultimo
+print(fruta[:]) ## printa tudo
+print(fruta[3:3]) ## string vazia
+
+## LAÇO E CONTAGEM
+
+palavra = "banana"
+count = 0
+
+for i in palavra:
+    if i == "a":
+        count += 1
+print(count)
+
+
+## Operador In
+
+palavra = "banana"
+
+if "x" in palavra:
+    print(True)
+else:
+    print(False)
+
+## COMPARAÇÃO DE STRINGS
+
+palavra = "banana"
+
+if palavra < "banana":
+    print("Sua palavra" + palavra + ", vem antes de banana")
+elif palavra > "banana":
+    print("Sua palavra" + palavra + ", vem depois de banana")
+else:
+    print("Certo, banana")
+
+## metodo DIR > dir(coisa) >> lista metodo disponiveis em um objeto
+## metodo HELP >> help(str.capitalize) >> acesso a documentação sobre o método
+## método é similar a função, mas a sintaxe é diferente veja abaixo:
+
+
+##METODOS
+
+palavra = "banana"
+palavra1 = "maça"
+
+novaPalavra = palavra.upper()
+print(novaPalavra)
+
+indice = palavra1.find("a")
+print(indice)
+
+linha = " Aqui vamos nós  "
+semEspaço = linha.strip()
+print(semEspaço)
+
+frase = "Tem um bom dia"
+temEssaStr = frase.lower().startswith("dia")
+print(temEssaStr)
+
+contagem = palavra.count("a")
+print(contagem)
+
+##PARTICIONANDO STRING
+
+data = "From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008"
+atpos = data.find("@")
+print(atpos)
+
+sppos = data.find(" ", atpos)
+print(sppos)
+
+host = data[atpos+1:sppos]
+print(host)
+
+##OPERADOR DE FORMATAÇÃO
+
+camelos = 42
+print("Eu vi %d camelos" % camelos)
+print("Em %d anos eu vi %g porcento só %s e os outros porcentos %g eram viados." % (3, 99.9, "camelos", 1))
+
+## EXERCICIOS CAPITULO 6
+##6.5
+
+str = "X-DSPAM-Confidence:0.8475"
+antes = str.find(":")
+apos = str.find(" ", antes)
+
+hosp = str[antes+1: apos]
+print(float(hosp))
+
+##LIVRO > PYTHON PARA TODOS, SEVERANCE CHARLES
+## CAPITULO 07
+
+##ARQUIVOS > ABRIR
+
+arquivo = open("mbox.txt.")
+print(arquivo)
+
+##ARQUIVOS > LENDO
+
+fhand = open("mbox-short.txt")
+count = 0
+
+for i in fhand:
+    count += 1
+print("Contagem de linhas:", count)
+
+fhand = open("mbox-short.txt")
+inp = fhand.read()
+print(len(inp))
+print(inp[:20])
+
+##ARQUIVOS > BUSCAR USANDO STARTSWITCH OU RSTRIP
+
+fhand = open("mbox-short.txt")
+count = 0
+for i in fhand:
+    if i.startswith("From:"):
+        print(i)
+
+fhand = open("mbox-short.txt")
+for i in fhand:
+    i = i.rstrip()
+    if i.startswith("From:"):
+        print(i)
+
+fhand = open("mbox-short.txt")
+for i in fhand:
+    i = i.rstrip()
+    ## passar qaudno for interresante
+    if not i.startswith("From:"):
+        continue
+    ## prcessa nossa linha de interrese
+    print(i)
+
+
+fhand = open("mbox-short.txt")
+
+for i in fhand:
+    i = i.rstrip()
+    if i.find("@uct.ac.za") == -1:
+        continue
+    print(i)
+
+##ARQUIVOS > ESCOLHENDO NOME DO ARQUIVO
+
+fname = input("Entre com o nome do arquivo: ")
+fhand = open(fname)
+count = 0
+
+for i in fhand:
+    if i.startswith("Subject:"):
+        count += 1
+print("Aqui está", count, "linha do objeto", fname)
+
+
+##ARQUIVOS > TRY, EXCEPT E OPEN
+
+fname = input("Entre com o nome do arquivo: ")
+try:
+    fhand = open(fname)
+except:
+    print("Arquivo não pode ser aberto:", fname)
+    exit()
+count = 0
+for i in fhand:
+    if i.startswith("Subject:"):
+        count += 1
+print("Aqui está", count, "linha do objeto", fname)
+
+##ARQUIVOS > ESCREVENDO ARQUIVOS
+
+fout = open("output.txt", "w")
+
+line1 = "This here's the wattle, \n"
+line2 = "the e,blem of our land. \n"
+fout.write(line1)
+fout.write(line2)
+fout.close()
+
+
 
 
 
