@@ -212,6 +212,103 @@ except:
     print("Pontuação Invalida")
 
 
+##LIVRO > PYTHON PARA TODOS, SEVERANCE CHARLES
+## CAPITULO 04
+
+## 12 - FUNÇÃO DE CONVERSÃO DE TIPOS
+
+print(float("3.12455"))
+print(int(3.999998))
+print(str(985) + " str")
+
+## 13 - FUNÇÃO MATH
+
+import  math
+
+decibes = 10 * math.log10(10)
+radianos = 0.7
+modulo = math.sin(radianos)
+print(modulo)
+
+graus = 45
+radianos2 = graus / 360.0 * 2 * math.pi
+print(math.sin(radianos2))
+
+print(math.sqrt(2) / 2.0)
+
+## 14 - NUMEROS ALEATORIOS -> RANDOM, RANDINT, CHOICE
+
+import random
+
+for i in range(5):
+    y = random.randint(5, 10)
+    x = random.random()
+    print(f"{i + 1} -> X = {x}, Y = {y}")
+
+t = [1, 2, 3, 4, 5]
+print(random.choice(t))
+
+## 14 - ADC NOVAS FUNÇÕES
+
+def Print_LetraDeMusica():
+    return "Eu sou um lenhador, e eu estou bem.\nEu durmo a noite toda e trabalho o dia todo.\n"
+
+def Repetir_LetraDeMusica():
+    return 2 * Print_LetraDeMusica()
+
+print(Print_LetraDeMusica())
+print(Repetir_LetraDeMusica())
+
+## 15 - PARAMETROS E ARGUMENTOS
+
+bruce = " Bruce"
+def mostraDuasVezes(str):
+    return 2 * str
+
+print(mostraDuasVezes(bruce))
+
+## 16 - FUNÇÃO FRUTIFERA
+
+def soma(x, y):
+    return x + y
+
+print(soma(1,2))
+
+## EXERCICIOS CAPITULO 4
+##4.6
+
+hora = float(input("Quantas horas por dia voce trabalha: "))
+extra = float(input("Qual a taxa: "))
+
+def calculoPagamento(hora, taxaHora):
+    pagamento = hora * taxaHora
+    return f"Pagamento: {pagamento}"
+
+print(calculoPagamento(hora, extra))
+
+##4.7
+
+
+pontos = input("Insira sua pontuação entre 0.0 a 1.0: ")
+
+def computerNotas(pontuacao):
+    pontos = float(pontuacao)
+
+    if pontos >= 0.9:
+        return f"Insira a pontuação: {pontos}\nA"
+    elif pontos >= 0.8 and pontos < 0.9:
+        return f"Insira a pontuação: {pontos}\nB"
+    elif pontos >= 0.7 and pontos < 0.8:
+        return f"Insira a pontuação: {pontos}\nC"
+    elif pontos >= 0.6 and pontos < 0.7:
+        return f"Insira a pontuação: {pontos}\nD"
+    else:
+        return f"Insira a pontuação: {pontos}\nF"
+
+print(computerNotas(pontos))
+
+
+
 
 
 
