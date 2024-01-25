@@ -287,26 +287,28 @@ def calculoPagamento(hora, taxaHora):
 print(calculoPagamento(hora, extra))
 
 ##4.7
-
-
 pontos = input("Insira sua pontuação entre 0.0 a 1.0: ")
 
 def computerNotas(pontuacao):
-    pontos = float(pontuacao)
 
-    if pontos >= 0.9:
-        return f"Insira a pontuação: {pontos}\nA"
-    elif pontos >= 0.8 and pontos < 0.9:
-        return f"Insira a pontuação: {pontos}\nB"
-    elif pontos >= 0.7 and pontos < 0.8:
-        return f"Insira a pontuação: {pontos}\nC"
-    elif pontos >= 0.6 and pontos < 0.7:
-        return f"Insira a pontuação: {pontos}\nD"
-    else:
-        return f"Insira a pontuação: {pontos}\nF"
+    try:
+        pontos = float(pontuacao)
+
+        if pontos >= 0.9:
+            return f"Insira a pontuação: {pontos}\nA"
+        elif pontos >= 0.8 and pontos < 0.9:
+            return f"Insira a pontuação: {pontos}\nB"
+        elif pontos >= 0.7 and pontos < 0.8:
+            return f"Insira a pontuação: {pontos}\nC"
+        elif pontos >= 0.6 and pontos < 0.7:
+            return f"Insira a pontuação: {pontos}\nD"
+        else:
+            return f"Insira a pontuação: {pontos}\nF"
+
+    except:
+        return f"Pontuação Inválida"
 
 print(computerNotas(pontos))
-
 
 
 
