@@ -312,6 +312,164 @@ print(computerNotas(pontos))
 
 
 
+##LIVRO > PYTHON PARA TODOS, SEVERANCE CHARLES
+## CAPITULO 05
+
+## 17 - WHILE
+
+n = 5 ##contador e parametro de parada para o WHILE
+
+while n > 0:
+    print(n)
+    n = n - 1
+
+print("Lançar")
+
+## 18 - WHILE TRUE, CONTINUE E BREAK
+
+while True:
+    line = input("> ")
+    if line[0] == "#":
+        continue
+    if line == "done": ## codigo só para quando for escrito "done"
+        break
+    print(line)
+print("Done!")
+
+## 19 - LAÇO FOR
+
+amigos = ["Jose", "Gleice", "Sara"]
+for i in amigos:
+    print("Feliz Ano Novo ", i)
+print("Enviado")
+
+## 19 - FOR, CONTADO E SOMANDO REPETIÇÕES
+
+contador = 0
+lista = [3, 41, 12, 9, 74, 15]
+
+for iterar in lista:
+    contador += 1
+
+print(f"Contagem: {contador}")
+
+## SOMANDO
+total = 0
+
+for i in [3, 41, 12, 9, 74, 15]:
+    total += i
+    
+print(f"Soma total: {total}")
+
+## 19 - FOR MAXIMOS E MINIMOS
+## None é vazia
+
+maximo = 0
+lista1 = [3, 41, 12, 9, 74, 15]
+
+print(f"Antes: {maximo}")
+
+for i in lista1:
+    if maximo is None or i > maximo:
+        maximo = i
+    print(f"Laço: {i}, {maximo}")
+print(f"Máximo Atual: {maximo}")
+
+minimu = None
+lista1 = [3, 41, 12, 9, 74, 15]
+print(f"Antes: {minimu}")
+
+for i in lista1:
+    if minimu is None or i < minimu:
+        minimu = i
+    print(f"Laço: {i}, {minimu}")
+print(f"Minimo Atual: {minimu}")
+
+## EXERCICIOS CAPITULO 5
+##5.1
+
+try:
+    total = 0
+    quantidade = 0
+
+    while True:
+        entrada = input("Digite um numero: ")
+
+        if entrada == "pronto":
+            break
+
+        try:
+            numero = int(entrada)
+
+            if numero < 0:
+                print("Número negativo não é permitido")
+                continue
+            total += numero
+            quantidade += 1
+        except ValueError:
+            print("Entrada Invalida")
+    if quantidade > 0:
+        media = total / quantidade
+        print(f"Soma total: {total}, Quantidae: {quantidade}, Média {media}")
+    else:
+        print("Número negativo não é permitido")
+except KeyboardInterrupt:
+    print("\nOperação interrupida pelo usuario")
+except Exception as ex:
+    print(f"Ocorreu erro {ex}")
+
+print("Pronto")
+
+##5.2
+
+try:
+    total = 0
+    quantidade = 0
+    max = None
+    min = None
+    lista = []
+
+    while True:
+        entrada = input("Digite um numero: ")
+
+        if entrada == "pronto":
+            break
+
+        try:
+            numero = int(entrada)
+
+            if numero < 0:
+                print("Número negativo não é valido")
+                continue
+
+            lista.append(numero)
+            total += numero
+            quantidade += 1
+
+            if max is None or numero > max:
+                max = numero
+
+            if min is None or numero < min:
+                min = numero
+
+        except ValueError:
+            print("Entrada Invalida")
+
+    for i in lista:
+        print(f"Laço: {i}, Maximo: {max}")
+
+    for i in lista:
+        print(f"Laço: {i}, Minimu: {min}")
+
+except KeyboardInterrupt:
+    print("Operação interrupida pelo usuario")
+except Exception as ex:
+    print(f"Ocorreu erro {ex}")
+
+print("Pronto")
+
+
+
 
 
 
