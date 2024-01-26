@@ -696,6 +696,237 @@ fout.write(line2)
 fout.close()
 
 
+##LIVRO > PYTHON PARA TODOS, SEVERANCE CHARLES
+## CAPITULO 08
+##LISTA
+
+variosTipos = ["spam", 2.5, 5, [10, 20]]
+queijos = ["Cheddar", "Edam", "Gouda"]
+numbers = [17, 123]
+empty = []
+
+print(queijos, numbers, empty, variosTipos)
+
+##LISTA SÃO MUTAVEIS
+
+numeros = [17, 123]
+numeros[1] = -1
+print(numeros)
+print(17 in numeros)
+
+##LISTA LAÇOS
+
+queijos = ["Cheddar", "Edam", "Gouda"]
+for chees in queijos:
+    print(chees)
+
+## ESCREVER OU ATUALIZAR ELEMENTOS DE UMA LISTA
+
+numbers = [17, 123]
+
+for i in range(len(numbers)):
+    numbers[i] = numbers[i] * 2
+    
+print(numbers)
+
+##OPERAÇÕES COM LISTA
+
+x = [0]
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = a + b
+print(c, x * 4)
+
+##FATIAMENTO COM LISTA
+
+t = ["a", "b", "c", "d", "e", "f"]
+print(t[1:3], t[:4], t[3:])
+
+##METODOS COM LISTA >> APPEND, EXTEND, SORT
+
+t = ["a", "b", "c"]
+t.append("d")
+print(t)
+
+t1 = ["a", "b", "c"]
+t2 = ["d", "e", "f"]
+t1.extend(t2)
+print(t1)
+
+t3 = ["d", "c", "e", "b", "a", "f"]
+t3.sort()
+print(t3)
+
+##APAGANDO ELEMENTOS >> POP, DEL, REMOVE
+
+t = ["a", "b", "c"]
+popp = t.pop(1)
+print(popp)
+print(t)
+
+t = ["a", "b", "c"]
+del t[1]
+print(t)
+
+t3 = ["d", "c", "e", "b", "a", "f"]
+del t3[1:5]
+print(t3)
+
+t = ["a", "b", "c"]
+t.remove("b")
+print(t)
+
+##LISTAS E FUNÇÕES >> LEN, MAX, MIN, SUM
+
+numbs = [3, 41, 12, 9, 74, 15]
+print(len(numbs))
+print(max(numbs))
+print(min(numbs))
+print(sum(numbs))
+print(f"média: {sum(numbs) / len(numbs)}")
+
+total = 0
+count = 0
+
+while (True):
+    inp = input("Entre com um numero: ")
+    if inp == "done":
+        break
+    value = float(inp)
+    total += value
+    count += 1
+media = total / count
+print(f"A média é: {media}")
+
+numList = list()
+
+while(True):
+    inp = input("Entre com numeros: ")
+    if inp == "done":
+        break
+    valor = float(inp)
+    numList.append(valor)
+media = sum(numList) / len(numList)
+print(f"A média é: {media}")
+
+##LISTAS E STRINGS >> SPLIT, JOIN
+
+s = "spam"
+l = list(s)
+print(l)
+
+
+s = "sentido falta dos fiordes"
+l = s.split()
+print(l)
+print(l[2])
+
+spam = "spam-spam-spam"
+delimitador = "-"
+a = spam.split(delimitador)
+print(a)
+
+
+t = ["sentido", "falta", "dos", "fiordes"]
+delimitador = " " ##coloca espaço entre as palavras
+a = delimitador.join(t)
+print(a)
+
+##LINHAS ALIADAS
+
+fhand = open("mbox-short.txt")
+for i in fhand:
+    i = i.rstrip()
+    if not i.startswith("From "):
+        continue
+    words = i.split()
+    print(words[2])
+
+##OBJETOS E VALORES
+##LISTAS SÃO OBETOS DIFERENTES APESAR DE POSSUIR ELEMENTOS IGUAIS
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+print(a is b)
+
+##LINHAS COMO ARGUMENTO
+
+
+def removePrimeiroElemento(lista):
+    del lista[0]
+
+letras = ["a", "b", "c"]
+
+removePrimeiroElemento(letras)
+print(letras)
+
+
+## EXERCICIOS CAPITULO 8
+##8.1
+
+def corte(lista):
+    del lista[0]
+    lista.pop()
+    return None
+
+def meio(lista):
+    return lista[1:-1]
+
+listt = [1, 2, 4, 6, 8, 9]
+
+print(meio(listt))
+print(corte(listt))
+
+##8.4
+
+abrirArquivo = open("romeo.txt")
+lista = []
+
+for linha in abrirArquivo:
+    palavra = linha.split()
+    
+    for i in palavra:
+        if i not in lista:
+            lista.append(i)
+abrirArquivo.close()
+lista.sort()
+print(lista)
+
+##8.5
+
+nomeArquivo = open("mbox-short.txt")
+data = "From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008"
+contador = 0
+
+for i in nomeArquivo:
+    if i.startswith("From"):
+        contador += 1
+        separa = i.split()
+
+##8.6
+
+
+lista = []
+
+while(True):
+    entrada = input("Digite numeros: ")
+    if entrada == "done":
+        break
+    try:
+        numero = float(entrada)
+        lista.append(numero)
+    except ValueError:
+        print("Insira o numerou ou 'done' ")
+    if lista:
+        maximo = max(lista)
+        minimu = min(lista)
+        print(maximo, minimu)
+    else:
+        print("nenhum foi digitado")
+
+
+
+
 
 
 
