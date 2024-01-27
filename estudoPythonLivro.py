@@ -924,9 +924,223 @@ while(True):
     else:
         print("nenhum foi digitado")
 
+##LIVRO > PYTHON PARA TODOS, SEVERANCE CHARLES
+## CAPITULO 09
+
+##DICIONARIO
+## "CHAVE":"VALOR"
+
+ing2port = dict()
+## ing2port["one"] = "um"
+ing2port = {'one':'um', "two":"dois", "three": "três"}
+vals = list(ing2port.values())
+
+print(ing2port)
+print(ing2port["two"])
+print(len(ing2port))
+print("one" in ing2port)
+print("quatro" in vals)
 
 
+##9.1
 
+ler = open("words.txt")
+dicionario = dict()
+
+for linha in ler:
+    palavra = linha.strip()
+    dicionario[palavra] = None
+ler.close()
+
+buscaPalavra = input("Encontre sua palavra")
+
+if buscaPalavra in dicionario:
+    print(f"Sua palavra {buscaPalavra} está no dic")
+else:
+    print("Sua palavra não está no dic")
+
+##HISTOGRAMA
+
+palavra = "prontosaaurus"
+dicionario = dict()
+
+for i in palavra:
+    if i not in dicionario:
+        dicionario[i] = 1
+    else:
+        dicionario[i] += 1
+        
+print(dicionario)
+
+##GET >> recebe dois paramentros chave e valor > se a chave existir retorna valor
+
+conta = {"chuck":1, "annie": 42, "jan":100}
+print(conta.get("jan", 0))
+print(conta.get("tim", 0))
+
+palavra = "brontosaurus"
+dicion = dict()
+
+for letra in palavra:
+    dicion[letra] = dicion.get(letra, 0) + 1
+
+print(dicion)
+
+
+##DICIONARIO E ARQUIVOS
+
+fname = input("Entre com o nome do arquivo: ")
+try:
+    fhand = open(fname)
+except:
+    print("Arquivo não encontrado")
+    exit()
+count = dict()
+
+for i in fhand:
+    palavras = i.split()
+    for i in palavras:
+        if i not in count:
+            count[i] = 1
+        else:
+            count[i] += 1
+print(count)
+
+##DICIONARIO E LAÇOS
+
+conta = {"chuck": 1, "annie": 42, "jan": 100}
+
+for indice in conta:
+    if conta[indice] > 10:
+        print(indice, conta[indice])
+
+
+conta = {"chuck": 1, "annie": 42, "jan": 100}
+lista = list(conta.keys()) ##primeiro KEY depois VALUE
+print(lista)
+lista.sort()
+for indice in lista:
+    print(indice, conta[indice])
+
+import string
+
+fname = input("Entre com o nome do arquivo: ")
+try:
+    fhand = open(fname)
+except:
+    print("Arquivo não encontrado")
+    exit()
+count = dict()
+for i in fhand:
+    i = i.rstrip()
+    i = i.translate(i.maketrans("", "", string.punctuation))
+    i = i.lower()
+    palavras = i.split()
+    for i in palavras:
+        if i not in count:
+            count[i] = 1
+        else:
+            count[i] += 1
+print(count)
+
+##LIVRO > PYTHON PARA TODOS, SEVERANCE CHARLES
+## CAPITULO 10
+
+##TUPLAS >> IMUTAVÉL
+
+tupla1 = ("a", "e", "i", "o", "u")
+tupla2 = tuple()
+tupla = ("a", )
+t = tuple("lupins")
+
+print(type(tupla))
+print(type(tupla1))
+print(type(tupla2))
+print(tupla1[0])
+print(tupla1[1:3])
+print(t)
+
+##TUPLAS COMPARAÇÃO
+
+txt = "but soft what light in younder window breaks"
+palavras = txt.split()
+lista = list()
+
+for i in palavras:
+    lista.append((len(i), i))##cria uma tupla
+
+lista.sort(reverse=True)## vai em ordem decrescente
+
+res = list()
+
+for tamanho, i in lista:##constroi uma lista de palavras em ordem decrescente de comprimento
+    res.append(i)
+
+print(res)
+
+##TUPLAS ATRIBUIÇÃO
+
+m = ("se", "divirta-")
+(x1, y1) = m
+x, y = m
+print(y)
+print(x)
+print(y)
+print(x)
+
+email = "florzinha@hotmail.com"
+nomeUser, dominioEmail = email.split("@")
+print(nomeUser, dominioEmail)
+
+##TUPLAS E DICIONARIOS
+
+dicionario = {"a": 10, "b": 1, "c": 5}
+tuplazona = list(dicionario.items())
+tuplazona.sort()
+print(tuplazona)
+
+##TUPLAS MUTIPLA ATRIBUIÇÃO COM DIC
+
+dicionario = {"a": 10, "b": 1, "c": 5}
+
+for chave, valor in list(dicionario.items()):
+    print(valor, chave)
+
+
+dicionario = {"a": 10, "b": 1, "c": 5}
+lista = list()
+
+for chave, valor in dicionario.items():
+    lista.append((valor, chave))
+    
+lista.sort(reverse=True)
+print(lista)
+
+##TUPLAS >> PALAVRAS MAIS COMUNS
+
+import string
+
+fhand =open("romeo-full.txt")
+counts = dict()
+
+for line in fhand:
+    line = line.translate(str.maketrans("", "", string.punctuation))
+    line = line.lower()
+    words = line.split()
+    for i in words:
+        if i not in counts:
+            counts[i] = 1
+        else:
+            counts[i] += 1
+
+lista = list()
+for key, value in list(counts.items()):
+    lista.append((value, key))
+
+lista.sort(reverse=True)
+
+for key, val in lista[:10]:
+    print(key, val)
 
 
 
