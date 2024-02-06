@@ -1143,6 +1143,99 @@ for key, val in lista[:10]:
     print(key, val)
 
 
+##LIVRO > PYTHON PARA TODOS, SEVERANCE CHARLES
+## CAPITULO 14
+## 14.1 - PROGRAMAÇÃO ORIENTADA A OBJETO
+
+stuff = list() ##constroi objeto do tipo lista
+stuff.append("python") ##chama o metodo append
+stuff.append("chuck") ##chama o metodo append
+stuff.sort() ##chamam o metodo sort
+
+##print(stuff[0]) ## recupera o item da posição 0
+##print(stuff.__getitem__(0)) ##chamam o metodo __getitem()__ com o parametro 0
+##print(list.__getitem__(stuff, 0)) ##chamam o metodo __getitem()__ de maneira bem mais detalhada
+## acima chamamos o método __getitem()__ na classe list, passamos a lista stuff e o item que queremos recuperar como párametro
+
+##print(dir(stuff)) ##dir() mostra capacidade do obejto receber metodos
+
+usf = input("Entre como o número do andar: ")
+wf = int(usf) - 1
+print(f"Seu andar é {wf}")
+
+## 14.6 - PRIMEIRO OBJETO
+
+class partyAnimal: ##objeto/instancia
+    x = 0 ##variavel
+
+    def __init__(self):
+        print("Eu sou construtor")
+
+    def party(self): ##party é a função/metodo
+        self.x += 1
+        print("So far", self.x)
+
+    def __del__(self):
+        print("Eu sou destruidor", self.x) ## raro a ultilização de destruidor
+
+an = partyAnimal() ## variavel an aponta p/ objeto/instância
+an.party()
+an.party()
+an = 42
+partyAnimal.party(an)
+print("contem", an)
+
+## Classe > partyAnimal
+## Objeto/instância > an
+## Variavel da classe > x
+## Método/Função > party(self)
+## Chamda de método > an.party() e partyAnimal.party(an)
+
+print("Tipo", type(an))
+print("Dir", dir(an))
+print("Tipo", type(an.x))
+print("Tipo", type(an.party))
+
+## 14.9 - MULTIPLAS ISNTÂNCIAS
+
+class partyAnimal:
+    x = 0
+    name = ''
+
+    def __init__(self, nam):
+        self.name = nam
+        print(self.name, "construtor")
+
+    def party(self):
+        self.x += 1
+        print(self.name, "contador da party", self.x)
+
+s = partyAnimal("Saly")
+j = partyAnimal("Jim")
+
+s.party()
+j.party()
+s.party()
+
+## 14.10 - HERANÇA
+
+from party import partyAnimal
+
+class crisketFan(partyAnimal):
+    points = 0
+    def six(self):
+        self.points = self.points + 6
+        self.party()
+        print(self.name, "points", self.points)
+
+s = partyAnimal("Sally")
+s.party()
+j = crisketFan("Jim")
+j.party()
+j.six()
+print(dir(j))
+
+
 
 
 
