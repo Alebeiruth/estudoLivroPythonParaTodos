@@ -1,14 +1,14 @@
-# Project Title
+# Estudos do livro Python para Todos
 
-A short description about the project and/or client.
+Resumo de alguns capitulos em forma de codigo e comentarios.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+São anotações para eventual pesquisa e estudos futuros
 
 ### Prerequisites
 
-The things you need before installing the software.
+Pré requisto é saber a linguagem de programação Python
 
 * You need this
 * And you need this
@@ -16,7 +16,7 @@ The things you need before installing the software.
 
 ### Installation
 
-A step by step guide that will tell you how to get the development environment up and running.
+Instale qualquer IDE que rode Python 3
 
 ```
 $ First step
@@ -26,7 +26,7 @@ $ Final step
 
 ## Usage
 
-A few examples of useful commands and/or tasks.
+Nos demais titulos deixarei o texto original desse modelo de README
 
 ```
 $ First example
